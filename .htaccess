@@ -1,5 +1,10 @@
 # Open the System to the wild ( on development servers only )
-
+order allow,deny
+allow from all
+AuthType Basic
+AuthName "GMS Crawler Version 1.0b"
+AuthUserFile C:/wamp/bin/apache/apache2.4.9/passwords/.htpasswd
+Require user a4apparel
 
 # UTF-8 Only Please Sir!
 AddCharset utf-8 .html .css .js .xml .svg
