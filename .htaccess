@@ -1,0 +1,77 @@
+# Open the System to the wild ( on development servers only )
+
+
+# UTF-8 Only Please Sir!
+AddCharset utf-8 .html .css .js .xml .svg
+AddDefaultCharset utf-8
+
+
+# Add file types to prevent caching errors
+AddType application/x-javascript 				 .js
+AddType application/vnd.ms-fontobject    .eot
+AddType application/x-font-opentype      .otf
+AddType image/svg+xml                    .svg
+AddType application/x-font-ttf           .ttf
+AddType application/font-woff            .woff
+AddType application/font-woff            .woff2
+AddType image/x-icon 										 .cur
+
+
+
+# Allow client side caching of media files
+<IfModule mod_expires.c>
+    # Turn on Expires and set default expires to 3 days
+    ExpiresActive On
+    ExpiresDefault A31536000
+
+    # Set up caching on media files for 1 month
+    <FilesMatch "\.(ico|gif|jpg|jpeg|png|flv|swf|mov|mp3|wmv|ppt|cur|eot|otf|svg|ttf|woff|woff2|xml|txt|x?html|js|css)$">
+        ExpiresDefault A2419200
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+		
+		# Prevent PDF Cache Entirely
+		<FilesMatch "\.(pdf)$">
+		  ExpiresActive On
+  		ExpiresDefault A1
+			Header set Cache-Control: "no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0"
+		</FilesMatch>		
+</IfModule>
+
+
+# Allow output compression of these file types
+<ifModule mod_deflate.c>
+  <filesMatch "\.(css|js|x?html|svg|svgz)$">
+    SetOutputFilter DEFLATE
+  </filesMatch>
+</ifModule>
+
+
+
+# Enable Cross Origin Requests, Keep-Alive Requests and Turn OFF ETags - they interfere with the Expires Headers
+<ifModule mod_headers.c>
+	Header set Access-Control-Allow-Origin "*"
+	Header set Connection keep-alive
+</ifModule>
+FileETag None
+
+
+
+# Allows proxy to cache both compressed and uncompressed versions
+<FilesMatch "\.(js|css|xml|gz|svg|svgz)$">
+	Header set Vary: Accept-Encoding
+</FilesMatch>
+
+
+
+# Alter the internal PHP configuration
+php_value magic_quotes 0
+php_flag magic_quotes off
+php_value magic_quotes_gpc 0
+php_flag magic_quotes_gpc off
+php_flag memory_limit 512M
+php_value memory_limit 512M
+php_flag auto_detect_line_endings on
+php_value auto_detect_line_endings 1
+php_value short_open_tag Off
+php_flag short_open_tag 0

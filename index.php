@@ -1,0 +1,12 @@
+<?php
+	session_start();
+	include('config/config.php');
+	include('inc/header.php');
+	if(!isset($_SESSION['crawler'])){
+		include('inc/form.php');
+	}else{			
+		include('inc/lists.php');
+		include('inc/scrapes.php');			
+	}
+	include('inc/footer.php');
+?>
