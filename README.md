@@ -1,6 +1,7 @@
 # whyte-dwarf
 Custom crawler and automatic Solr index updater
 
+# Dangerous Code: Unsanitized input at present
 PRERQUISITES: 
 
 **crawler_lists** must be wraitable
