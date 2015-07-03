@@ -21,7 +21,7 @@ I will soon add the simple static Solr adapter class, Example Schema.xml for Sil
 # Credits
 
 
-**PHPCrawl
+**PHPCrawl**
 
 PHPCrawl was created by sminnee
 
@@ -29,15 +29,15 @@ https://github.com/sminnee/phpcrawl
 
 
 
-**Robots.class.php
+**Robots.class.php**
 
-Robots wase created by Andy Pieters
+Robots was created by Andy Pieters
 
 Pieters.Andy@gmail.com
 
 
 
-**PHP Simple HTML DOM Parser
+**PHP Simple HTML DOM Parser**
 
 http://simplehtmldom.sourceforge.net/
 
