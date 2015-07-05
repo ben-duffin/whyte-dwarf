@@ -2,7 +2,7 @@
 Custom crawler and automatic Solr index updater
 
 # Dangerous Code: Unsanitized input at present
-PRERQUISITES: 
+REQUIRES: 
 
 **crawler_lists** must be writable
 
@@ -10,7 +10,7 @@ PRERQUISITES:
 
 Edit config/config.php for your Solr settings and Crawl Delay
 
-Use the form to setup your crawl parameters
+Use the form to setup your crawl parameters.
 
 Save multiple crawls / scrapes of the same domain while testing, then push the desired scrape data to Solr ready for indexing and searching.
 
